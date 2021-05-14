@@ -37,8 +37,7 @@ Farthest Point Sampling (FPS) In order to sample K points from an input point cl
 Random Point Sampling (RPS) Random sampling uniformly selects K points from the original point clouds. Its computational complexity is O(1). Compared with IDIS and FPS, RPS has the highest computational efficiency, regardless of the scale of the input point clouds. The experiment shows that it only takes 0.004s to process 10^6 points. Although RPS may discard certain useful features, we make certain modifications to our model to better aggregate the features. Figure below visualizes sampling results using FPS (left) and RPS (right). We implement both of them in our network and make a comparison with their final performance in the Experiment part.
 
 <div align="center">
-  <img src="Pictures/figure1.jpg" width="700"/>
-  <figcaption>{{ include.description }}</figcaption>
+  <img src="Pictures/figure1.jpg" width="700" title="hover text"/>
 </div>
 
 #### 4.2. Modified PointNet
