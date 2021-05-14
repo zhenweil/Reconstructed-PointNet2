@@ -38,6 +38,7 @@ Random Point Sampling (RPS) Random sampling uniformly selects K points from the 
 
 <div align="center">
   <img src="Pictures/figure1.jpg" width="700"/>
+  <figcaption>{{ include.description }}</figcaption>
 </div>
 
 #### 4.2. Modified PointNet
