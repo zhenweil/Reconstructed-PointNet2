@@ -1,6 +1,7 @@
 # Reconstructed PointNet++: Towards fast and robust 3D perception
 
 ## Presentation
+Please find the link to our project report here: https://github.com/zhenweil/Reconstructed-PointNet2
 Please find the link to our presentation here: https://drive.google.com/file/d/1qYiT_m5lhyBjGvIKJwrxqSit_D8I8vnt/view?usp=sharing
 
 ## 1. Introduction
