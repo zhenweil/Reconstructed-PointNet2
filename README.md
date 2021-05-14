@@ -41,7 +41,7 @@ Processing point clouds with a  deep neural network inevitably requires those po
 </div>
 
 <p align="center">
-  Figure 1.
+  Figure 1. Visualized results of two implemented sampling methods: FPS (left) and RPS (right) in our project. Points sampled out are colored in red
 </p>
 
 #### 4.2. Modified PointNet
@@ -53,16 +53,24 @@ A detailed explanation of the model architecture is provided as follows. The inp
   <img src="Pictures/figure2.png" width="1000"/>
 </div>
 
+<p align="center">
+  Figure 2. Modified PointNet
+</p>
 #### 4.3. Reconstructed PointNet++
 Although PointNet demonstrates the possibility to directly process on raw point clouds, its performance is limited due to the fact that spatial relation between points is not considered during inference. Therefore, PointNet++ [2] was proposed to compensate for this drawback. The key component in PointNet++ is a set abstraction module (visualized in Figure 3). Simply speaking, set abstraction uses a certain sampling method (FPS, RPS, etc) to extract n key points in the point cloud. For each key point, its neighborhood is formed by its n nearest neighbors and itself. Thus, we then acquire n neighborhoods that describe the input point cloud. During feature extraction, a PointNet is applied to each neighborhood, resulting in n features (one feature vector for each neighborhood). The same grouping and sampling process is then repeated on these features, until the final feature becomes descriptive enough. This final feature will be fed into a fully connected layer for classification. The original implementation uses FPS for sampling. However, as stated in Section 4, FPS is computationally expensive and therefore not suitable for real-time application. In our reconstructed PointNet++, we implemented RPS that significantly boosted the speed performance. We also utilized the modified PointNet for feature extraction, which also reduces the complexity. 
 
 <div align="center">
   <img src="Pictures/figure3.png" width="800"/>
 </div>
-
+<p align="center">
+  Figure 3. Architecture for Reconstructed PointNet++
+</p>
 ## 5. Experiments
 We performed an ablation study comparing our Reconstructed PointNet++ with other PointNet++ architectures. The performance is evaluated by classification accuracy and training/inference speed. All experiments were performed on an AWS g4dn.xlarge instance, with results shown in Table 1. We observed that by changing the sampling method from FPS to RPS, the training and inference speed become four times faster, with a small drop of classification accuracy. By adding skip connection to PointNet, this drop is compensated, with accuracy raised from 90.0% to 91.2%. Overall, compared with the original PointNet++ implementation (original PointNet + FPS), our reconstructed PointNet++ is four times faster while producing a better classification score. This exhibits the efficiency and accuracy of reconstructed PointNet++. 
 
+<p align="center">
+  Table 1. Ablation study of different model architectures
+</p>
 <div align="center">
   <img src="Pictures/table1.jpg" width="500"/>
 </div>
