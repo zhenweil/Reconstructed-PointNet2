@@ -37,7 +37,7 @@ Farthest Point Sampling (FPS) In order to sample K points from an input point cl
 Random Point Sampling (RPS) Random sampling uniformly selects K points from the original point clouds. Its computational complexity is O(1). Compared with IDIS and FPS, RPS has the highest computational efficiency, regardless of the scale of the input point clouds. The experiment shows that it only takes 0.004s to process 10^6 points. Although RPS may discard certain useful features, we make certain modifications to our model to better aggregate the features. Figure below visualizes sampling results using FPS (left) and RPS (right). We implement both of them in our network and make a comparison with their final performance in the Experiment part.
 
 <div align="center">
-  <img src="Pictures/figure1.jpg" width="500"/>
+  <img src="Pictures/figure1.jpg" width="700"/>
 </div>
 
 #### 4.2. Modified PointNet
@@ -46,14 +46,14 @@ PointNet is one of the pioneer works in point cloud classification and segmentat
 A detailed explanation of the model architecture is provided as follows. The input points (m x 3) are first downsampled to a uniform size (n x 3). We then applied multiple layers of 1D convolution to increase the feature dimension. Between convolutional layers we added skip connection in order to maintain local features during forward propagation. After the final convolutional layer, a max pooling operation was applied to extract the global feature. This operation is invariant to the order of points and therefore works effectively as a point cloud global feature extractor. The global feature is finally fed into a fully connected layer for classification.
 
 <div align="center">
-  <img src="Pictures/figure2.png" width="500"/>
+  <img src="Pictures/figure2.png" width="1000"/>
 </div>
 
 #### 4.3. Reconstructed PointNet++
 Although PointNet demonstrates the possibility to directly process on raw point clouds, its performance is limited due to the fact that spatial relation between points is not considered during inference. Therefore, PointNet++ [2] was proposed to compensate for this drawback. The key component in PointNet++ is a set abstraction module (visualized in Figure 3). Simply speaking, set abstraction uses a certain sampling method (FPS, RPS, etc) to extract n key points in the point cloud. For each key point, its neighborhood is formed by its n nearest neighbors and itself. Thus, we then acquire n neighborhoods that describe the input point cloud. During feature extraction, a PointNet is applied to each neighborhood, resulting in n features (one feature vector for each neighborhood). The same grouping and sampling process is then repeated on these features, until the final feature becomes descriptive enough. This final feature will be fed into a fully connected layer for classification. The original implementation uses FPS for sampling. However, as stated in Section 4, FPS is computationally expensive and therefore not suitable for real-time application. In our reconstructed PointNet++, we implemented RPS that significantly boosted the speed performance. We also utilized the modified PointNet for feature extraction, which also reduces the complexity. 
 
 <div align="center">
-  <img src="Pictures/figure3.png" width="500"/>
+  <img src="Pictures/figure3.png" width="1000"/>
 </div>
 
 ## 5. Experiments
