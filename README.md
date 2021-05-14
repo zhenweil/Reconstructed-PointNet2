@@ -53,7 +53,7 @@ A detailed explanation of the model architecture is provided as follows. The inp
 Although PointNet demonstrates the possibility to directly process on raw point clouds, its performance is limited due to the fact that spatial relation between points is not considered during inference. Therefore, PointNet++ [2] was proposed to compensate for this drawback. The key component in PointNet++ is a set abstraction module (visualized in Figure 3). Simply speaking, set abstraction uses a certain sampling method (FPS, RPS, etc) to extract n key points in the point cloud. For each key point, its neighborhood is formed by its n nearest neighbors and itself. Thus, we then acquire n neighborhoods that describe the input point cloud. During feature extraction, a PointNet is applied to each neighborhood, resulting in n features (one feature vector for each neighborhood). The same grouping and sampling process is then repeated on these features, until the final feature becomes descriptive enough. This final feature will be fed into a fully connected layer for classification. The original implementation uses FPS for sampling. However, as stated in Section 4, FPS is computationally expensive and therefore not suitable for real-time application. In our reconstructed PointNet++, we implemented RPS that significantly boosted the speed performance. We also utilized the modified PointNet for feature extraction, which also reduces the complexity. 
 
 <div align="center">
-  <img src="Pictures/figure3.png" width="1000"/>
+  <img src="Pictures/figure3.png" width="800"/>
 </div>
 
 ## 5. Experiments
