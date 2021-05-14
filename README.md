@@ -40,6 +40,10 @@ Processing point clouds with a  deep neural network inevitably requires those po
   <img src="Pictures/figure1.jpg" width="700" title="hover text">
 </div>
 
+<p align="center">
+  Figure 1.
+</p>
+
 #### 4.2. Modified PointNet
 PointNet is one of the pioneer works in point cloud classification and segmentation. It uses multi-layer perceptrons to map point features from low dimension to high dimension. The original PointNet also predicts an affine transformation matrix to align features to a canonical space. In this paper, we implemented our own version of PointNet. We 1) added skip connection between convolution layers to improve feature extraction and 2) removed affine transformation prediction to reduce computation. These modifications significantly improve processing speed compared to the original PointNet while still retaining the feature extraction capability. The new architecture is shown in Figure 2. 
 
