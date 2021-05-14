@@ -59,6 +59,10 @@ Although PointNet demonstrates the possibility to directly process on raw point 
 ## 5. Experiments
 We performed an ablation study comparing our Reconstructed PointNet++ with other PointNet++ architectures. The performance is evaluated by classification accuracy and training/inference speed. All experiments were performed on an AWS g4dn.xlarge instance, with results shown in Table 1. We observed that by changing the sampling method from FPS to RPS, the training and inference speed become four times faster, with a small drop of classification accuracy. By adding skip connection to PointNet, this drop is compensated, with accuracy raised from 90.0% to 91.2%. Overall, compared with the original PointNet++ implementation (original PointNet + FPS), our reconstructed PointNet++ is four times faster while producing a better classification score. This exhibits the efficiency and accuracy of reconstructed PointNet++. 
 
+<div align="center">
+  <img src="Pictures/table1.jpg" width="500"/>
+</div>
+
 ## 6. Conclusion
 We proposed a reconstructed point-based 3D feature learning method to meet the real-time processing demands and preserve the model performance. 
 Specifically, we speeded up the training and evaluation process of the PointNet model dramatically and reached comparable performance with the original model. We also reduced redundancy of the network structure without affecting final performance and reliability. 
