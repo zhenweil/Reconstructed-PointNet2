@@ -1,7 +1,7 @@
 # Reconstructed PointNet++: Towards fast and robust 3D perception
 
 ## Presentation
-Please find the link to our presentation here:
+Please find the link to our presentation here: https://drive.google.com/file/d/1qYiT_m5lhyBjGvIKJwrxqSit_D8I8vnt/view?usp=sharing
 
 ## 1. Introduction
 Due to the development of the self-driving industry, 3D perception has been an increasingly popular topic among researchers in recent years. Aiming at understanding complex real-world 3D environments, both model accuracy and inference speed are important factors for developing robust and reliable 3D perception systems.
