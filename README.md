@@ -70,6 +70,24 @@ We believe that our work could be beneficial to various areas in 3D perception, 
 
 ## Reference
 [1] Qi, C. R., Su, H., Mo, K., and Guibas, L. J., “PointNet: Deep Learning on Point Sets for 3D Classification and Segmentation”, <i>arXiv e-prints</i>, 2016.
+
 [2] Qi, C. R., Yi, L., Su, H., and Guibas, L. J., “PointNet++: Deep Hierarchical Feature Learning on Point Sets in a Metric Space”, <i>arXiv e-prints</i>, 2017.
+
 [3] Shi, S., “PV-RCNN: Point-Voxel Feature Set Abstraction for 3D Object Detection”, <i>arXiv e-prints</i>, 2019.
+
 [4] A. Geiger, P. Lenz, and R. Urtasun, “Are we ready for autonomous driving,” in CVPR, 2012. 
+
+## Acknowledgements
+Our project is based on the following github repository:
+https://github.com/yanx27/Pointnet_Pointnet2_pytorch
+
+We would like to thank the contributors for providing us code resources
+## Contributors
+Zhenwei [@zhenweil](https://https://github.com/zhenweil)
+
+Jincheng Lu [@Keenthan](https://github.com/Keenthan)
+
+GuilinZ [@GuilinZ](https://github.com/GuilinZ)
+
+## License
+For academic use, this project is licensed under the 2-clause BSD License - see the LICENSE file for details. For commercial use, please contact the authors.
